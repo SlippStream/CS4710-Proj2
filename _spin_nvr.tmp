@@ -1,0 +1,11 @@
+never ltl_0 {    /* !([] (<> (((Bob@bob_protocol_complete)) <-> ((Alice@alice_protocol_complete))))) */
+T0_init:
+	do
+	:: (((! (((Bob@bob_protocol_complete))) && ((Alice@alice_protocol_complete))) || (! (((Alice@alice_protocol_complete))) && ((Bob@bob_protocol_complete))))) -> goto accept_S35
+	:: (1) -> goto T0_init
+	od;
+accept_S35:
+	do
+	:: (((! (((Bob@bob_protocol_complete))) && ((Alice@alice_protocol_complete))) || (! (((Alice@alice_protocol_complete))) && ((Bob@bob_protocol_complete))))) -> goto accept_S35
+	od;
+}
